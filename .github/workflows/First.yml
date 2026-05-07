@@ -8,7 +8,7 @@ on:
 env:
   GREETING: Hello, World!
   AZURE-WEBAPPNAME: App-eastus07
-  AZURE-WEBAPP-PACKAGE-PATH: "~/publish"
+  AZURE-WEBAPP-PACKAGE-PATH: "./Api1/publish"
   DOTNET_VERSION: "9.0"
   SOLUTION-PATH: "./Api1/Api1.sln"
   API-PROJECT-PATH: "./Api1/Api1.csproj"
@@ -42,7 +42,7 @@ jobs:
        - name: Publish artifacts    
          uses: azure/upload-artifact@v2
          with:
-           app-name: ${{ env.AZURE-WEBAPP-PACKAGE-PATH:}}
+           app-name: ${{ env.AZURE-WEBAPP-PACKAGE-PATH}}
            path: ${{ env.PUBLISH-PATH }}
           
   deploy-to-azure:
